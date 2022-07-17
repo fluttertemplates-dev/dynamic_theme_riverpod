@@ -37,8 +37,8 @@ final themeNotifierProvider =
 
 class MyApp extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final _themeNotifier = watch(themeNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _themeNotifier = ref.watch(themeNotifierProvider);
 
     return MaterialApp(
       title: 'Flutter Demo',
@@ -55,8 +55,8 @@ class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final notifier = watch(themeNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(themeNotifierProvider);
 
     return Scaffold(
         appBar: AppBar(title: Text("Dynamic Theme")),
